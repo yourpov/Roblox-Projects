@@ -1,7 +1,7 @@
 local Maid = {
     Version = "1.0.1",
     ScriptVersion = "1.0.1",
-    GameVersion = "2.0.0",
+    GameVersion = "unknown",
 }
 
 local connections = {}
@@ -13,7 +13,7 @@ function traceBack(...)
     if runService:IsStudio() or table.find(users, tostring(player)) then
         warn("[Maid Service]:", ...)
     end
-end
+endd
 
 function verify(name)
     return connections[name]

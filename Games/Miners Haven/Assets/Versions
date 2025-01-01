@@ -1,5 +1,5 @@
 return {
     Maid   = "1.0.1",
     Script = "1.0.1"
-    Game   = "2.0.0"
+    Game   = "unknown"
 }
