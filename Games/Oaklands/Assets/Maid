@@ -1,0 +1,87 @@
+--[[ Main created by: @silentben8x
+        Modified by: @itsjusnix. ]]--
+
+local Maid = {
+    Version = "1.0.1",
+    ScriptVersion = "1.0.1",
+    GameVersion = "2.0.0",
+}
+
+local connections = {}
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+local runService = game:GetService("RunService")
+
+local function traceBack(...)
+    local users = {"NightfallDeveloper", "NightfallDevelopment", "TehSilentX", "ItzMeSilent"}
+    if runService:IsStudio() or table.find(users, tostring(player)) then
+        warn("[Maid Service] :", ...)
+    end
+end
+
+local function verify(name)
+    return connections[name]
+end
+
+function Maid:count()
+    return #connections
+end
+
+function Maid:register(name, callback)
+    if verify(name) then
+        return false, traceBack(name, "already exists")
+    end
+    connections[name] = callback
+    traceBack(name, "added to connections")
+    return true, traceBack(name, "successfully registered")
+end
+
+function Maid:deRegister(name)
+    local connection = verify(name)
+    if not connection then
+        return false, traceBack(name, "not found")
+    end
+    
+    if typeof(connection) == "RBXScriptConnection" then
+        connection:Disconnect()
+    end
+    connections[name] = nil
+    traceBack(name, "disconnected")
+    return true, traceBack(name, "successfully deregistered")
+end
+
+function Maid:clearRegister()
+    for connection, _ in pairs(connections) do
+        self:deRegister(connection)
+    end
+    traceBack("cleared register")
+end
+
+function Maid:getConnections()
+    return connections
+end
+
+function Maid:updateConnection(name, callback)
+    if not verify(name) then
+        return false, traceBack(name, "not found")
+    end
+    connections[name] = callback
+    traceBack(name, "updated connection")
+    return true, traceBack(name, "successfully updated")
+end
+
+function Maid:fetchVersion()
+    return {MaidVersion = self.Version, ScriptVersion = self.ScriptVersion, GameVersion = self.GameVersion}
+end
+
+function Maid:clearConnections()
+    for name, connection in pairs(connections) do
+        if typeof(connection) == "RBXScriptConnection" then
+            self.deRegister(name)
+        end
+        connections[name] = nil
+    end
+    traceBack("cleaned all connections")
+end
+
+return Maid

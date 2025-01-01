@@ -1,0 +1,5 @@
+return {
+
+    ["No Waypoints Yet"]      = CFrame.new(0, 0, 0)
+
+}

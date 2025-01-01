@@ -1,0 +1,69 @@
+local Maid = {
+    Version = "1.0.1",
+    ScriptVersion = "1.0.1",
+    GameVersion = "2.0.0",
+}
+
+local connections = {}
+local player = game:GetService("Players").LocalPlayer
+local runService = game:GetService("RunService")
+
+local function traceBack(...)
+    local users = {"NightfallDeveloper", "NightfallDevelopment", "TehSilentX", "ItzMeSilent"}
+    if runService:IsStudio() or table.find(users, tostring(player)) then
+        warn("[Maid Service]:", ...)
+    end
+end
+
+local function verify(name)
+    return connections[name]
+end
+
+function Maid:register(name, callback)
+    if verify(name) then
+        return false, traceBack(name, "already exists")
+    end
+    if typeof(callback) ~= "RBXScriptConnection" and typeof(callback) ~= "function" then
+        return false, traceBack(name, "invalid type")
+    end
+    connections[name] = callback
+    return true, traceBack(name, "registered")
+end
+
+function Maid:deRegister(name)
+    local connection = verify(name)
+    if not connection then
+        return false, traceBack(name, "not found")
+    end
+    if typeof(connection) == "RBXScriptConnection" then
+        connection:Disconnect()
+    end
+    connections[name] = nil
+    return true, traceBack(name, "removed")
+end
+
+function Maid:clearConnections()
+    for name, _ in pairs(connections) do
+        self:deRegister(name)
+    end
+    traceBack("All connections cleared")
+end
+
+function Maid:reRegister(name, newCallback)
+    self:deRegister(name)
+    return self:register(name, newCallback)
+end
+
+function Maid:count()
+    return #connections
+end
+
+function Maid:getConnections()
+    return connections
+end
+
+function Maid:fetchVersion()
+    return {MaidVersion = self.Version, ScriptVersion = self.ScriptVersion, GameVersion = self.GameVersion}
+end
+
+return Maid

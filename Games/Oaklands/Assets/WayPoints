@@ -1,0 +1,21 @@
+return {
+
+    ["Secret Mine"]      = CFrame.new(-477, 91, 152),
+    ["Mystery Totem"]    = CFrame.new(-3624.82593, 117.653343, 132),
+    ["Oak-Lake"]         = CFrame.new(-2953, 134, 497),
+    ["Mountain Peak"]    = CFrame.new(-1773, 330, 592),
+    ["Jerry's Junkyard"] = CFrame.new(-540, 133, 1999),
+    ["Secret Island"]    = CFrame.new(2868, 85, 2069),
+    ["Palm Island"]      = CFrame.new(-1058, 90, -1636),
+    ["Oak Depot"]        = CFrame.new(712,83,1697),
+    ["Lighthouse"]       = CFrame.new(-10.5939359664917, 61.19804000854492, -3304.966064453125),
+    ["Fungi Shop"]       = CFrame.new(1441, 67, -2535),
+    ["Illumine Designs"] = CFrame.new(-553, 155, -3612),
+    ["Mushroom Island"]  = CFrame.new(1441, 67, -2535),
+    ["Dancing NPC"]      = CFrame.new(-7, 280, -3063),
+    ["Hut"]              = CFrame.new(827, 355, -2879),
+    ["Stone Statue"]     = CFrame.new(-4936.97802734375, 1631.3609619140625, 3132.266845703125)
+
+}
+
+
