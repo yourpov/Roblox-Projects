@@ -8,14 +8,14 @@ local connections = {}
 local player = game:GetService("Players").LocalPlayer
 local runService = game:GetService("RunService")
 
-local function traceBack(...)
+function traceBack(...)
     local users = {"NightfallDeveloper", "NightfallDevelopment", "TehSilentX", "ItzMeSilent"}
     if runService:IsStudio() or table.find(users, tostring(player)) then
         warn("[Maid Service]:", ...)
     end
 end
 
-local function verify(name)
+function verify(name)
     return connections[name]
 end
 
