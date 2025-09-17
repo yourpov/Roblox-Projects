@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) 2025 Nix (pov)
+ * 
+ * All rights reserved. This code is proprietary and is provided only for its
+ * intended purpose through the official loadstring distribution. 
+ * 
+ * You are NOT permitted to:
+ *  - Decompile, de-obfuscate, or reverse-engineer this code.
+ *  - Redistribute, resell, or modify the code in any form.
+ *  - Host or share this code outside of the original distribution source.
+ * 
+ * The code is provided "AS IS" without warranty of any kind. The author is not
+ * responsible for any issues, damages, or misuse arising from its use.
+ */
