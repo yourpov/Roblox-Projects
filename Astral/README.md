@@ -25,9 +25,8 @@
     --------------------------------------------------------------------------------------------------------------------------
 
     Scripts:
-    - @itsjusnix   (Developer) | v1 - current
-    - @silentben8x (Developer) | v1 - current
-
+    - @uhhhwhatever   (Developer) | v1 - current
+    
     UI Library:
     - @silentben8x
 
